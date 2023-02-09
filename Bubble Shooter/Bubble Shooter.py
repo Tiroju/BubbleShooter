@@ -14,6 +14,8 @@ pygame.init()
 
 
 #MUSIQUE ET SONS
+mixer.init()
+mixer.music.load("Pop.mp3")
 
 
 font = pygame.font.Font('freesansbold.ttf', 20)
@@ -126,6 +128,7 @@ while running: # Boucle infinie pour laisser la fenêtre ouverte
                 tir = False
                 if hit.eclate(bubbles):
                     score += 2
+                    mixer.music.play(1)
                 else:
                     if (canon.rect.x - 1) < hit.rect.x:
                         canon.rect.x = (hit.rect.x - 49.75)
